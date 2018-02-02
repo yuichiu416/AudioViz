@@ -61,8 +61,8 @@ public class Model {
     public double seconds;
     public double minutes;
     public double hours;
+    public final NumberStringConverter converter1 = new NumberStringConverter("0");    
     public final NumberStringConverter converter2 = new NumberStringConverter("00");
-    public final NumberStringConverter converter3 = new NumberStringConverter("000"); 
     public int backgroundXCoordinate = 0;
     public double opacity = 1;
     public double volume;
@@ -221,13 +221,15 @@ public class Model {
     public void handleReady() {
         Duration duration = mediaPlayer.getTotalDuration();
         double ms = duration.toMillis();
+        millis = ms/10;
         seconds = ms / 1000;
         minutes = seconds / 60;
         hours = minutes / 60;
+        millis %= 100;
         seconds %= 60;
         minutes %= 60;
         hours %= 60;
-        lengthText.setText(converter2.toString(hours) + ":" + converter2.toString(minutes) + ":" + converter2.toString(seconds));
+        lengthText.setText(converter2.toString(hours) + ":" + converter2.toString(minutes) + ":" + converter2.toString(seconds) + ":" + converter1.toString(millis));
         Duration ct = mediaPlayer.getCurrentTime();
         currentText.setText(ct.toString());
         currentVisualizer.start(numBands, vizPane);
@@ -247,13 +249,15 @@ public class Model {
     public void handleUpdate(double timestamp, double duration, float[] magnitudes, float[] phases) throws ParseException {
         Duration ct = mediaPlayer.getCurrentTime();
         double ms = ct.toMillis();
+        millis = ms/100;
         seconds = ms / 1000;
         minutes = seconds / 60;
         hours = minutes / 60;
+        millis %= 10;
         seconds %= 60;
         minutes %= 60;
         hours %= 60;
-        currentText.setText(converter2.toString(hours) + ":" + converter2.toString(minutes) + ":" + converter2.toString(seconds));
+        currentText.setText(converter2.toString(hours) + ":" + converter2.toString(minutes) + ":" + converter2.toString(seconds) + ":" + converter1.toString(millis));
         timeSlider.setValue(ms);
         vizPane.setStyle("-fx-background-position: " + backgroundXCoordinate++ + " center");
         currentVisualizer.update(timestamp, duration, magnitudes, phases);
