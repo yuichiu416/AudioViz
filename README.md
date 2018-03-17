@@ -19,3 +19,8 @@ It's a player that can play musics with karaoke lyric, also with some cool visua
 You can also:
   - Remove the songs in the list by clicking mouse's left button and right button at the same time
 
+## Result
+* Test with mp3 file and txt file in the package
+
+
+![result](example.JPG)
