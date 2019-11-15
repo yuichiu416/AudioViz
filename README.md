@@ -5,15 +5,15 @@ It's a player that can play musics with karaoke lyric, also with some cool visua
 
 # New Features!
 
-  - Time seeking bar.(requirement)
-  - Display one digit after the decimal point for the the numerical values displayed after Length: and Current: in the user interface.(requirement)
-  - Volume controling bar.
-  - The background universe picture is moving!
-  - A playlist which allows the user adding multiple songs at the same time.
-  - Display lyrics.
-  - Current isualizer name is shining.
-  - Next and Previous button for next/previous song
-  - MVC structure
+ - Time seeking bar.
+ - Display one digit after the decimal point for the numerical values displayed after Length: and Current: in the user interface.
+Volume controlling bar.
+ - The background universe picture is moving!
+ - A playlist allows the user adding multiple songs at the same time.
+ - Display lyrics.
+ - The current visualizer name is shining.
+ - Next and Previous button for next/previous song
+ - MVC structure
 
 
 You can also:
